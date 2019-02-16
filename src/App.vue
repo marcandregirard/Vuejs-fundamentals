@@ -37,10 +37,6 @@ body{
 
 
 <style scoped>
-.content {
-  color:red;
-  border: 2px solid blue;
-}
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
 }
