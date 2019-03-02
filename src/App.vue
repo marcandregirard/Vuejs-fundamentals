@@ -4,9 +4,14 @@
       <nav>
         <ul>
           <li class="nav-item">
-            <router-link :to="{name: 'Home'}" class="nav-link">
+            <router-link :to="{name: 'Home'}" class="nav-link" exact>
               <img class="logo" src="./assets/build-a-bot-logo.png" />
               Build-a-Bot
+            </router-link>
+          </li>
+          <li class="nav-item">
+            <router-link :to="{name: 'Build'}" class="nav-link" exact>
+              Build
             </router-link>
           </li>
         </ul>
@@ -68,5 +73,7 @@ ul {
   text-decoration: none;
   color: inherit;
 }
-
+.router-link-active {
+  color: white;
+}
 </style>
