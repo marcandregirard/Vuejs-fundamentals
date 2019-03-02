@@ -46,23 +46,6 @@
         position="bottom"
         @partSelected="part => selectedRobot.base = part"/>
     </div>
-    <div>
-      <h1>Cart</h1>
-      <table>
-        <thead>
-          <tr>
-            <th>Robot</th>
-            <th class="cost">Cost</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr v-for="(robot, index) in cart" :key="index">
-            <td>{{robot.head.title}}</td>
-            <td class="cost">{{robot.cost}}</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
   </div>
 
 </template>
@@ -89,7 +72,6 @@ export default {
     return {
       availableParts,
       addedToCart: false,
-      cart: [],
       selectedRobot: {
         head: {},
         leftArm: {},
@@ -116,7 +98,7 @@ export default {
       robot.torso.cost +
       robot.rightArm.cost +
       robot.base.cost;
-      this.cart.push(Object.assign({}, robot, { cost }));
+      this.$store.commit('addRobotToCart', Object.assign({}, robot, { cost }));
       this.addedToCart = true;
     },
   },
@@ -232,11 +214,6 @@ export default {
   width: 210px;
   padding: 3px;
   font-size: 16px;
-}
-td,th {
-  text-align: left;
-  padding: 5px;
-  padding-right: 20px;
 }
 .cost {
   text-align: right;
